@@ -24,12 +24,10 @@ test('setContent(emailContent) & getContent()', () => {
     html: '<b>Meeting timesheet attached</b>',
     attachments: [{ path: 'ClinicXXX_Meetings_2019-06-23_2019-06-29.pdf' }],
   });
-  const strategy = {
-    sendingStrategy: () => {
-      return { status: '200', message: 'email sent' };
-    },
+  const anAlwaysSuccessSendingStrategy = {
+    send: (_) => Promise.resolve({ status: '200', message: 'email sent' }),
   };
-  const email = new Email(strategy);
+  const email = new Email(anAlwaysSuccessSendingStrategy);
   email.setContent(emailContent);
   const result = email.getContent();
   expect(result).toEqual(emailContent);
