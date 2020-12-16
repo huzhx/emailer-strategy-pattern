@@ -1,9 +1,12 @@
 # emailer-strategy-pattern
+
 Implement different email approaches by strategy pattern
+![Email Strategy Pattern Diagram](email-strategy-pattern-diagram.png)
 
 Run `npm install` to set up the dependencies
 
 Define these env variables:
+
 - EMAIL_HOST
 - EMAIL_PORT
 - EMAIL_SECURE
