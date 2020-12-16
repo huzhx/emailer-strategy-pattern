@@ -36,7 +36,7 @@ test('send(emailContent)', async () => {
   if (process.env.EMAIL_PASS) {
     nodemailer.setHost(process.env.EMAIL_HOST);
     nodemailer.setPort(process.env.EMAIL_PORT);
-    nodemailer.setSecure(process.env.EMAIL_SECURE);
+    nodemailer.setSecure(process.env.EMAIL_SECURE === 'true');
     nodemailer.setAuth({
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
@@ -44,7 +44,7 @@ test('send(emailContent)', async () => {
   } else {
     nodemailer.setHost(process.env.EMAIL_HOST);
     nodemailer.setPort(process.env.EMAIL_PORT);
-    nodemailer.setSecure(process.env.EMAIL_SECURE);
+    nodemailer.setSecure(process.env.EMAIL_SECURE === 'true');
   }
   const emailContent = createEmailContent({
     from: process.env.EMAIL_SENDER,
