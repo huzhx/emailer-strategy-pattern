@@ -4,10 +4,12 @@ Implement different email approaches by strategy pattern
 Run `npm install` to set up the dependencies
 
 Define these env variables:
-- process.env.EMAIL_HOST
-- process.env.EMAIL_PORT
-- process.env.EMAIL_SECURE
-- process.env.EMAIL_USER
-- process.env.EMAIL_PASS
+- EMAIL_HOST
+- EMAIL_PORT
+- EMAIL_SECURE
+- EMAIL_USER
+- EMAIL_PASS
+- EMAIL_SENDER
+- EMAIL_RECEIVER
 
 Run `npm test` to check if everything is working as expected
