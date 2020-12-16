@@ -7,7 +7,7 @@ test('adds 1 + 1 to equal 2', () => {
 test('if missing From, it should throw error', () => {
   expect(() => {
     createEmailContent({
-      to: 'huzhx@uci.edu',
+      to: process.env.EMAIL_RECEIVER,
       subject: 'Meeting Timesheet',
       text: 'Meeting timesheet attached',
       html: '<b>Meeting timesheet attached</b>',
@@ -19,7 +19,7 @@ test('if missing From, it should throw error', () => {
 test('if missing To, it should throw error', () => {
   expect(() => {
     createEmailContent({
-      from: 'dialysfe@umich.edu',
+      from: process.env.EMAIL_SENDER,
       subject: 'Meeting Timesheet',
       text: 'Meeting timesheet attached',
       html: '<b>Meeting timesheet attached</b>',
@@ -31,8 +31,8 @@ test('if missing To, it should throw error', () => {
 test('if missing Subject, it should throw error', () => {
   expect(() => {
     createEmailContent({
-      from: 'dialysfe@umich.edu',
-      to: 'huzhx@uci.edu',
+      from: process.env.EMAIL_SENDER,
+      to: process.env.EMAIL_RECEIVER,
       text: 'Meeting timesheet attached',
       html: '<b>Meeting timesheet attached</b>',
       attachments: [{ path: 'ClinicXXX_Meetings_2019-06-23_2019-06-29.pdf' }],
@@ -43,8 +43,8 @@ test('if missing Subject, it should throw error', () => {
 test('if missing Text, it should throw error', () => {
   expect(() => {
     createEmailContent({
-      from: 'dialysfe@umich.edu',
-      to: 'huzhx@uci.edu',
+      from: process.env.EMAIL_SENDER,
+      to: process.env.EMAIL_RECEIVER,
       subject: 'Meeting Timesheet',
       html: '<b>Meeting timesheet attached</b>',
       attachments: [{ path: 'ClinicXXX_Meetings_2019-06-23_2019-06-29.pdf' }],
@@ -54,16 +54,16 @@ test('if missing Text, it should throw error', () => {
 
 test('create email content', () => {
   const result = createEmailContent({
-    from: 'dialysfe@umich.edu',
-    to: 'huzhx@uci.edu',
+    from: process.env.EMAIL_SENDER,
+    to: process.env.EMAIL_RECEIVER,
     text: 'Meeting timesheet attached',
     subject: 'Meeting Timesheet',
     html: '<b>Meeting timesheet attached</b>',
     attachments: [{ path: 'ClinicXXX_Meetings_2019-06-23_2019-06-29.pdf' }],
   });
   const expected = {
-    from: 'dialysfe@umich.edu',
-    to: 'huzhx@uci.edu',
+    from: process.env.EMAIL_SENDER,
+    to: process.env.EMAIL_RECEIVER,
     text: 'Meeting timesheet attached',
     subject: 'Meeting Timesheet',
     html: '<b>Meeting timesheet attached</b>',

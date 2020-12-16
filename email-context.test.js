@@ -17,8 +17,8 @@ test('instantiate Email class', () => {
 
 test('setContent(emailContent) & getContent()', () => {
   const emailContent = createEmailContent({
-    from: 'dialysfe@umich.edu',
-    to: 'huzhx@uci.edu',
+    from: process.env.EMAIL_SENDER,
+    to: process.env.EMAIL_RECEIVER,
     subject: 'Meeting Timesheet',
     text: 'Meeting timesheet attached',
     html: '<b>Meeting timesheet attached</b>',
@@ -35,8 +35,8 @@ test('setContent(emailContent) & getContent()', () => {
 
 test('send()', () => {
   const emailContent = createEmailContent({
-    from: 'dialysfe@umich.edu',
-    to: 'huzhx@uci.edu',
+    from: process.env.EMAIL_SENDER,
+    to: process.env.EMAIL_RECEIVER,
     subject: 'Meeting Timesheet',
     text: 'Meeting timesheet attached',
     html: '<b>Meeting timesheet attached</b>',
